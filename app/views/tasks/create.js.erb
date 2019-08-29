@@ -1,0 +1,3 @@
+ <% flash[:notice] = "Task created" %>
+
+document.getElementById("category-<%= @category.id %>").insertAdjacentHTML("beforeend", "<%= j render 'task', task: @task %>")

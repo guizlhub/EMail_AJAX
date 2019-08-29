@@ -1,0 +1,16 @@
+<p style="margin-bottom: -8px;"><strong style="color: #feb236">Objet du mail :</strong></p>
+<h1 style="color: #ff7b25"><%= email.object%></h1>
+<br /><br />
+<div class="col-10">
+	<p><%= email.body%></p>
+</div><br /> <br /> <br /> <br />
+<div class="row justify-content-end">
+	<div class="col-auto">
+		<%= link_to "Supprimer", destroy_email_path(email.id), method: :delete, remote: true, :class => "btn btn-danger" %>
+	</div>
+	<div class="col-auto">
+		<%= link_to "Marquer comme non lue", update_email_path(email), method: :patch, remote: true, :class => "btn btn-outline-secondary", :style =>  "margin-left: -25px; margin-right: 25px;" %>
+	</div>
+</div>
+<br/>
+

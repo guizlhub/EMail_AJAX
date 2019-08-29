@@ -1,0 +1,4 @@
+<%	@email = Email.find(params[:id]) %>
+<%	@email.destroy %>
+document.getElementById("email-<%= @email.id %>").remove
+document.getElementById("email-show").innerHTML = ""

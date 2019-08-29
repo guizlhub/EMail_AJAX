@@ -1,0 +1,30 @@
+<% require "faker" %>
+
+<div class="container">
+	<div class="row justify-content-between">
+		<div class="col-2">
+			<h1><strong style="color: #6b5b95;">Emails</strong></h1>
+			</div>
+			<div style="margin-right: -30px; padding-top: 15px;" class="col-2">
+			<%= link_to "Ajouter un mail", create_email_path(object: Faker::Quote.most_interesting_man_in_the_world, body: Faker::Lorem.paragraph_by_chars(number: 403, supplemental: false), read: false), method: :create, :class => "btn btn-outline-warning"%>
+		</div>
+	</div>
+	<br />
+	<div class="email-list" style="border: 0.5px dotted #DCDCDC; padding-top: 20px; padding-left: 20px;">
+		<div class="row">
+			<div id="mail" class="col-3">
+			<% @emails.each do |email| %>
+				<div id="email-<%= email.id %>" <% if email.read === false %> style="background-image: linear-gradient(to left, #feb236, #ffb090, #ffc6d9, #ffe6ff, #ffffff)" <% end %>>
+					<a href="<%= email_path(email.id) %>" data-remote="true"><p style="color: #545150; padding-right: 60px; font-size: 13px;"><strong style="color: #6b5b95; font-size: 15px;">Objet du mail:</strong><br/>
+					<%= email.object %> <br/> read : <%= email.read %></p></a>
+					<hr />
+				</div>
+					<% end %>
+			</div>
+			<div id="email-show" class="col-9">
+
+			</div>
+		</div>
+	</div>
+</div>
+

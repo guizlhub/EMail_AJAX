@@ -1,0 +1,3 @@
+<%	@email = Email.find(params[:id]) %>
+<%	@email.update(read: false) %>
+document.getElementById("email-<%= @email.id %>").style.backgroundImage = "to left, #feb236, #ffb090, #ffc6d9, #ffe6ff, #ffffff";
